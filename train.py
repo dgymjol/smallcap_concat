@@ -153,6 +153,7 @@ def main(args):
     training_args = Seq2SeqTrainingArguments(
         num_train_epochs=args.n_epochs, 
         per_device_train_batch_size=args.batch_size, 
+        dataloader_num_workers=args.num_workers,
         gradient_accumulation_steps=args.gradient_steps,
         learning_rate = args.lr,
         fp16=True,
@@ -196,6 +197,7 @@ if __name__ == '__main__':
     parser.add_argument("--lr", type=float, default=1e-4, help="Learning rate")
     parser.add_argument("--batch_size", type=int, default=64, help="Batch size")
     parser.add_argument("--gradient_steps", type=int, default=1, help="Number of gradient accumulation steps")
+    parser.add_argument("--num_workers", type=int, default=8, help="Number of dataloader workers will be used for dataloader")
 
     parser.add_argument("--ablation_visual", action="store_true", default=False, help="Whether to blank visual features")
 

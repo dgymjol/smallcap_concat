@@ -136,8 +136,8 @@ def main(args):
 
     args.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-    if args.infer_test or args.disable_rag:
-        args.features_path = None
+    # if args.infer_test or args.disable_rag:
+    #     args.features_path = None
     
     if args.features_path is not None:
         feature_extractor = None
